@@ -1,0 +1,3030 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SchoolKart – School ka har samaan</title>
+
+<meta name="description"
+content="SchoolKart - School ka har samaan, ab ghar baithe. Uniform, books, bags, shoes, stationery and more.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#1769ff;
+    --primary-dark:#0d47c9;
+    --yellow:#ffd43b;
+    --white:#ffffff;
+    --bg:#f5f8ff;
+    --text:#172033;
+    --muted:#697386;
+    --border:#e5e9f2;
+    --card:#ffffff;
+    --success:#16a34a;
+    --danger:#ef4444;
+    --shadow:0 10px 30px rgba(23,60,120,.10);
+}
+
+body.dark{
+    --bg:#0e1422;
+    --text:#f5f7fb;
+    --muted:#aeb7c8;
+    --border:#273149;
+    --card:#171f31;
+    --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    transition:.3s;
+}
+
+button,input,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:8px;
+    font-size:14px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+    color:var(--primary);
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#f4c400;
+}
+
+.nav-search{
+    flex:1;
+    display:flex;
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--bg);
+}
+
+.nav-search input{
+    flex:1;
+    padding:12px 15px;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--text);
+}
+
+.search-btn{
+    border:0;
+    background:var(--yellow);
+    padding:0 20px;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.icon-btn{
+    border:0;
+    background:transparent;
+    color:var(--text);
+    padding:8px;
+    font-size:21px;
+}
+
+.cart-btn{
+    background:var(--primary);
+    color:white;
+    border:0;
+    padding:11px 16px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1250px;
+    margin:25px auto;
+    padding:0 20px;
+}
+
+.hero-box{
+    min-height:400px;
+    border-radius:25px;
+    padding:55px;
+    background:
+    linear-gradient(100deg,rgba(12,68,180,.96),rgba(23,105,255,.78)),
+    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:680px;
+}
+
+.hero h1{
+    font-size:clamp(36px,6vw,65px);
+    line-height:1.05;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:28px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:10px;
+    background:var(--yellow);
+    color:#111;
+    font-weight:700;
+}
+
+/* =========================
+   SCHOOL SELECTOR
+========================= */
+
+.school-filter{
+    max-width:1150px;
+    margin:-55px auto 45px;
+    position:relative;
+    background:var(--card);
+    padding:22px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.filter-heading{
+    margin-bottom:15px;
+}
+
+.filter-heading h2{
+    font-size:20px;
+}
+
+.filter-heading p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.filter-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.filter-box{
+    position:relative;
+}
+
+.filter-grid select{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--card);
+    color:var(--text);
+    outline:none;
+}
+
+.filter-grid select:focus{
+    border-color:var(--primary);
+}
+
+.filter-grid select:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.selection-message{
+    margin-top:14px;
+    padding:10px 13px;
+    background:#edf5ff;
+    color:#1854b8;
+    border-radius:9px;
+    font-size:14px;
+    display:none;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+    max-width:1250px;
+    margin:0 auto;
+    padding:35px 20px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.view-all{
+    color:var(--primary);
+    font-weight:bold;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.category{
+    background:var(--card);
+    padding:20px 10px;
+    border-radius:16px;
+    text-align:center;
+    border:1px solid var(--border);
+    transition:.25s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.category-icon{
+    width:65px;
+    height:65px;
+    margin:auto auto 10px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#eaf1ff;
+    font-size:30px;
+}
+
+.category h3{
+    font-size:14px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.product{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.product-img{
+    height:220px;
+    background:#eef3fb;
+    overflow:hidden;
+    position:relative;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s;
+}
+
+.product:hover img{
+    transform:scale(1.05);
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#ff4757;
+    color:white;
+    padding:5px 9px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+    z-index:2;
+}
+
+.product-info{
+    padding:16px;
+}
+
+.product-info h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.rating{
+    color:#f5a623;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:800;
+}
+
+.old-price{
+    color:var(--muted);
+    text-decoration:line-through;
+    font-size:14px;
+    margin-left:6px;
+}
+
+.stock{
+    color:var(--success);
+    font-size:13px;
+    margin-top:5px;
+}
+
+.add-cart{
+    width:100%;
+    border:0;
+    background:var(--primary);
+    color:white;
+    padding:11px;
+    border-radius:9px;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+/* =========================
+   OFFER
+========================= */
+
+.offer{
+    max-width:1250px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+.offer-box{
+    background:linear-gradient(90deg,#ffd43b,#ffec8b);
+    border-radius:22px;
+    padding:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#151515;
+}
+
+.offer-box h2{
+    font-size:32px;
+}
+
+.offer-btn{
+    background:#151515;
+    color:white;
+    padding:13px 22px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:22px;
+}
+
+.review-stars{
+    color:#f5a623;
+    margin-bottom:10px;
+}
+
+.review-user{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:18px;
+    margin-bottom:10px;
+    border-radius:12px;
+}
+
+summary{
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    margin-top:50px;
+    background:#101827;
+    color:#dbe4f5;
+    padding:50px 20px 20px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer-logo{
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:12px;
+}
+
+.footer-grid h3{
+    margin-bottom:15px;
+    color:white;
+}
+
+.footer-grid a{
+    display:block;
+    margin:8px 0;
+    color:#aebbd1;
+}
+
+.copyright{
+    max-width:1250px;
+    margin:40px auto 0;
+    padding-top:20px;
+    border-top:1px solid #293348;
+    text-align:center;
+    color:#8f9bb0;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-430px;
+    width:min(430px,100%);
+    height:100vh;
+    background:var(--card);
+    z-index:2000;
+    box-shadow:-10px 0 30px rgba(0,0,0,.2);
+    transition:.3s;
+    padding:22px;
+    overflow-y:auto;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--border);
+}
+
+.close-cart{
+    border:0;
+    background:transparent;
+    font-size:28px;
+    color:var(--text);
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:9px;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.qty-buttons{
+    margin-top:8px;
+}
+
+.qty-buttons button{
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+    width:28px;
+    height:28px;
+    border-radius:5px;
+}
+
+.remove-btn{
+    border:0;
+    background:none;
+    color:var(--danger);
+    margin-left:10px;
+    font-size:13px;
+}
+
+.cart-total{
+    padding-top:20px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.delivery{
+    margin-top:8px;
+    font-size:13px;
+    color:var(--muted);
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:0;
+    border-radius:10px;
+    background:var(--primary);
+    color:white;
+    font-weight:bold;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    z-index:1500;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .filter-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:23px;
+    }
+
+    .nav-search{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .hero-box{
+        padding:35px 25px;
+        min-height:430px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .school-filter{
+        margin:-30px 15px 30px;
+    }
+
+    .filter-grid{
+        grid-template-columns:1fr;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-img{
+        height:160px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product-info h3{
+        font-size:14px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .offer-box{
+        display:block;
+        padding:25px;
+    }
+
+    .offer-box h2{
+        font-size:25px;
+        margin-bottom:15px;
+    }
+
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+    🎒 Free Delivery on orders above ₹999 |
+    SchoolKart – Your School Shopping Partner
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <a href="#" class="logo">
+        School<span>Kart</span>
+    </a>
+
+    <div class="nav-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search uniforms, books, bags..."
+            onkeyup="searchProducts()"
+        >
+
+        <button class="search-btn">
+            🔍
+        </button>
+
+    </div>
+
+    <div class="nav-actions">
+
+        <button
+            class="icon-btn"
+            onclick="toggleDarkMode()"
+            title="Dark Mode">
+            🌙
+        </button>
+
+        <button
+            class="icon-btn"
+            title="Wishlist">
+            ♡
+        </button>
+
+        <button
+            class="cart-btn"
+            onclick="openCart()">
+
+            🛒 Cart
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-box">
+
+    <div class="hero-content">
+
+        <h1>
+            School ka har samaan –
+            <span>Ab Ghar Baithe.</span>
+        </h1>
+
+        <p>
+            Uniform, Books, Bags, Shoes, Stationery aur school ki
+            har zaroorat – sab kuch ek hi jagah.
+        </p>
+
+        <a href="#products" class="hero-btn">
+            🛍️ Shop Now
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATE / CITY / SCHOOL
+========================= -->
+
+<section class="school-filter">
+
+    <div class="filter-heading">
+
+        <h2>🎓 Apna School Select Karein</h2>
+
+        <p>
+            State select karein → City select karein →
+            apna school select karein.
+        </p>
+
+    </div>
+
+
+    <div class="filter-grid">
+
+        <!-- STATE -->
+
+        <div class="filter-box">
+
+            <select
+                id="stateSelect"
+                onchange="loadCities()">
+
+                <option value="">
+                    Select State / UT
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="filter-box">
+
+            <select
+                id="citySelect"
+                onchange="loadSchools()"
+                disabled>
+
+                <option value="">
+                    Select City
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SCHOOL -->
+
+        <div class="filter-box">
+
+            <select
+                id="schoolSelect"
+                onchange="showSelection()"
+                disabled>
+
+                <option value="">
+                    Select School
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CLASS -->
+
+        <div class="filter-box">
+
+            <select
+                id="classSelect"
+                onchange="showSelection()">
+
+                <option value="">
+                    Select Class
+                </option>
+
+                <option>Nursery</option>
+                <option>LKG</option>
+                <option>UKG</option>
+                <option>Class 1</option>
+                <option>Class 2</option>
+                <option>Class 3</option>
+                <option>Class 4</option>
+                <option>Class 5</option>
+                <option>Class 6</option>
+                <option>Class 7</option>
+                <option>Class 8</option>
+                <option>Class 9</option>
+                <option>Class 10</option>
+                <option>Class 11</option>
+                <option>Class 12</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="selectionMessage"
+        class="selection-message">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>Shop by Category</h2>
+
+    <a href="#" class="view-all">
+        View All →
+    </a>
+
+</div>
+
+
+<div class="categories">
+
+    <div class="category">
+        <div class="category-icon">👔</div>
+        <h3>School Uniform</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">📚</div>
+        <h3>Books</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">📓</div>
+        <h3>Notebooks</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">🎒</div>
+        <h3>School Bags</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">👟</div>
+        <h3>Shoes</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">🧦</div>
+        <h3>Socks</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">🪢</div>
+        <h3>Belts</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">👔</div>
+        <h3>Tie</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">💧</div>
+        <h3>Water Bottle</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">🍱</div>
+        <h3>Lunch Box</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">✏️</div>
+        <h3>Stationery</h3>
+    </div>
+
+    <div class="category">
+        <div class="category-icon">🎨</div>
+        <h3>Drawing & Craft</h3>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED PRODUCTS
+========================= -->
+
+<section class="section" id="products">
+
+<div class="section-title">
+
+    <h2>Featured Products</h2>
+
+    <a href="#" class="view-all">
+        View All →
+    </a>
+
+</div>
+
+
+<div class="products" id="productGrid">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product" data-name="school uniform shirt">
+
+    <div class="product-img">
+
+        <span class="badge">
+            20% OFF
+        </span>
+
+        <img
+        src="https://images.unsplash.com/photo-1622445272461-c6580cab8755?auto=format&fit=crop&w=600&q=80"
+        alt="School Uniform">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Premium School Uniform Shirt
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (124)
+        </div>
+
+        <span class="price">
+            ₹599
+        </span>
+
+        <span class="old-price">
+            ₹749
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Premium School Uniform Shirt',
+        599,
+        'https://images.unsplash.com/photo-1622445272461-c6580cab8755?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product" data-name="school backpack bag">
+
+    <div class="product-img">
+
+        <span class="badge">
+            BEST SELLER
+        </span>
+
+        <img
+        src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
+        alt="School Bag">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Premium School Backpack
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (256)
+        </div>
+
+        <span class="price">
+            ₹899
+        </span>
+
+        <span class="old-price">
+            ₹1,299
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Premium School Backpack',
+        899,
+        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product" data-name="school shoes">
+
+    <div class="product-img">
+
+        <span class="badge">
+            NEW
+        </span>
+
+        <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+        alt="School Shoes">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Classic School Shoes
+        </h3>
+
+        <div class="rating">
+            ★★★★☆ (98)
+        </div>
+
+        <span class="price">
+            ₹699
+        </span>
+
+        <span class="old-price">
+            ₹899
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Classic School Shoes',
+        699,
+        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product" data-name="notebook stationery">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"
+        alt="Notebook">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Classmate Notebook Pack
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (341)
+        </div>
+
+        <span class="price">
+            ₹299
+        </span>
+
+        <span class="old-price">
+            ₹350
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Classmate Notebook Pack',
+        299,
+        'https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="product" data-name="water bottle">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80"
+        alt="Water Bottle">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Kids School Water Bottle
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (187)
+        </div>
+
+        <span class="price">
+            ₹399
+        </span>
+
+        <span class="old-price">
+            ₹499
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Kids School Water Bottle',
+        399,
+        'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="product" data-name="lunch box">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
+        alt="Lunch Box">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Kids Lunch Box
+        </h3>
+
+        <div class="rating">
+            ★★★★☆ (76)
+        </div>
+
+        <span class="price">
+            ₹349
+        </span>
+
+        <span class="old-price">
+            ₹450
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Kids Lunch Box',
+        349,
+        'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="product" data-name="drawing craft colors">
+
+    <div class="product-img">
+
+        <span class="badge">
+            OFFER
+        </span>
+
+        <img
+        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+        alt="Drawing Kit">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Complete Drawing Kit
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (89)
+        </div>
+
+        <span class="price">
+            ₹499
+        </span>
+
+        <span class="old-price">
+            ₹699
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Complete Drawing Kit',
+        499,
+        'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="product" data-name="school tie belt">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=600&q=80"
+        alt="School Belt Tie">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            School Belt & Tie Combo
+        </h3>
+
+        <div class="rating">
+            ★★★★☆ (65)
+        </div>
+
+        <span class="price">
+            ₹249
+        </span>
+
+        <span class="old-price">
+            ₹350
+        </span>
+
+        <div class="stock">
+            ● In Stock
+        </div>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'School Belt & Tie Combo',
+        249,
+        'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     OFFER
+========================= -->
+
+<section class="offer">
+
+<div class="offer-box">
+
+    <div>
+
+        <h2>
+            🎉 Back to School Sale!
+        </h2>
+
+        <p>
+            Get up to <strong>40% OFF</strong>
+            on selected school products.
+        </p>
+
+    </div>
+
+    <a
+    href="#products"
+    class="offer-btn">
+
+        Shop Offers
+
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     BEST SELLERS
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        🔥 Best Sellers
+    </h2>
+
+    <a href="#" class="view-all">
+        View All →
+    </a>
+
+</div>
+
+
+<div class="products">
+
+
+<div class="product">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
+        alt="Backpack">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Smart School Backpack
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (450)
+        </div>
+
+        <span class="price">
+            ₹999
+        </span>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Smart School Backpack',
+        999,
+        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="product">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+        alt="Shoes">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Premium Black School Shoes
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (390)
+        </div>
+
+        <span class="price">
+            ₹799
+        </span>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Premium Black School Shoes',
+        799,
+        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="product">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80"
+        alt="Notebooks">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Premium Notebook Set
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (520)
+        </div>
+
+        <span class="price">
+            ₹399
+        </span>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Premium Notebook Set',
+        399,
+        'https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="product">
+
+    <div class="product-img">
+
+        <img
+        src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80"
+        alt="Bottle">
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Premium Steel Bottle
+        </h3>
+
+        <div class="rating">
+            ★★★★★ (280)
+        </div>
+
+        <span class="price">
+            ₹549
+        </span>
+
+        <button
+        class="add-cart"
+        onclick="addToCart(
+        'Premium Steel Bottle',
+        549,
+        'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=200&q=80'
+        )">
+
+            Add to Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        💬 Customer Reviews
+    </h2>
+
+</div>
+
+
+<div class="reviews">
+
+
+<div class="review">
+
+    <div class="review-stars">
+        ★★★★★
+    </div>
+
+    <p>
+        "School uniform ki quality bahut achhi thi.
+        Delivery bhi time par mil gayi."
+    </p>
+
+    <div class="review-user">
+        Rahul Sharma
+    </div>
+
+    <small>
+        Lucknow
+    </small>
+
+</div>
+
+
+<div class="review">
+
+    <div class="review-stars">
+        ★★★★★
+    </div>
+
+    <p>
+        "Books aur stationery ek hi jagah mil gayi.
+        SchoolKart ka experience excellent raha."
+    </p>
+
+    <div class="review-user">
+        Priya Verma
+    </div>
+
+    <small>
+        Kanpur
+    </small>
+
+</div>
+
+
+<div class="review">
+
+    <div class="review-stars">
+        ★★★★☆
+    </div>
+
+    <p>
+        "Bag quality premium hai aur price bhi reasonable.
+        Definitely recommended."
+    </p>
+
+    <div class="review-user">
+        Amit Singh
+    </div>
+
+    <small>
+        Delhi
+    </small>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        ❓ Frequently Asked Questions
+    </h2>
+
+</div>
+
+
+<div class="faq">
+
+<details>
+
+    <summary>
+        SchoolKart kya hai?
+    </summary>
+
+    <p>
+        SchoolKart ek online school shopping platform hai
+        jahan students aur parents school ki zaroori
+        cheezein order kar sakte hain.
+    </p>
+
+</details>
+
+
+<details>
+
+    <summary>
+        Kya school ke according uniform mil sakti hai?
+    </summary>
+
+    <p>
+        Haan. State, city, school aur class select karke
+        school-specific products dikhaye ja sakte hain.
+    </p>
+
+</details>
+
+
+<details>
+
+    <summary>
+        Payment ke kaun se options hain?
+    </summary>
+
+    <p>
+        UPI, Debit/Credit Card aur Cash on Delivery
+        production version mein support kiye ja sakte hain.
+    </p>
+
+</details>
+
+
+<details>
+
+    <summary>
+        Order kaise track karein?
+    </summary>
+
+    <p>
+        User Dashboard ke My Orders section se
+        order tracking ki ja sakti hai.
+    </p>
+
+</details>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div>
+
+    <div class="footer-logo">
+        School<span style="color:#ffd43b;">
+            Kart
+        </span>
+    </div>
+
+    <p>
+        School ka har samaan – Ab Ghar Baithe.
+        Uniform se lekar stationery tak,
+        sab kuch ek hi platform par.
+    </p>
+
+</div>
+
+
+<div>
+
+    <h3>
+        Quick Links
+    </h3>
+
+    <a href="#">
+        Home
+    </a>
+
+    <a href="#products">
+        Products
+    </a>
+
+    <a href="#">
+        Categories
+    </a>
+
+    <a href="#">
+        Offers
+    </a>
+
+</div>
+
+
+<div>
+
+    <h3>
+        Customer
+    </h3>
+
+    <a href="#">
+        My Account
+    </a>
+
+    <a href="#">
+        My Orders
+    </a>
+
+    <a href="#">
+        Wishlist
+    </a>
+
+    <a href="#">
+        Track Order
+    </a>
+
+</div>
+
+
+<div>
+
+    <h3>
+        Help
+    </h3>
+
+    <a href="#">
+        Contact Us
+    </a>
+
+    <a href="#">
+        Shipping Policy
+    </a>
+
+    <a href="#">
+        Return Policy
+    </a>
+
+    <a href="#">
+        Privacy Policy
+    </a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 SchoolKart. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<aside
+id="cartPanel"
+class="cart-panel">
+
+
+<div class="cart-header">
+
+    <h2>
+        🛒 Your Cart
+    </h2>
+
+    <button
+    class="close-cart"
+    onclick="closeCart()">
+
+        ×
+
+    </button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div class="cart-total">
+
+    Total:
+    ₹<span id="cartTotal">0</span>
+
+</div>
+
+
+<div class="delivery">
+    🚚 Delivery charges calculated at checkout.
+</div>
+
+
+<button
+class="checkout-btn"
+onclick="checkout()">
+
+    Proceed to Checkout
+
+</button>
+
+
+</aside>
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+class="whatsapp"
+href="https://wa.me/919999999999"
+target="_blank"
+title="WhatsApp Support">
+
+    ☎
+
+</a>
+
+
+<script>
+
+/* =========================================================
+   INDIA STATES + CITIES
+========================================================= */
+
+const indiaData = {
+
+"ANDAMAN AND NICOBAR ISLANDS":[
+"Port Blair","Diglipur","Mayabunder","Rangat"
+],
+
+"ANDHRA PRADESH":[
+"Anantapur","Chittoor","Eluru","Guntur","Kadapa",
+"Kakinada","Kurnool","Nellore","Ongole","Srikakulam",
+"Tirupati","Vijayawada","Visakhapatnam","Vizianagaram"
+],
+
+"ARUNACHAL PRADESH":[
+"Itanagar","Tawang","Bomdila","Pasighat",
+"Naharlagun","Ziro","Aalo","Tezu"
+],
+
+"ASSAM":[
+"Guwahati","Dibrugarh","Jorhat","Silchar",
+"Tezpur","Nagaon","Tinsukia","Sivasagar",
+"Dhubri","Barpeta"
+],
+
+"BIHAR":[
+"Patna","Gaya","Muzaffarpur","Bhagalpur",
+"Darbhanga","Purnia","Begusarai","Ara",
+"Katihar","Munger","Chapra","Bihar Sharif"
+],
+
+"CHANDIGARH":[
+"Chandigarh"
+],
+
+"CHHATTISGARH":[
+"Raipur","Bhilai","Bilaspur","Korba","Durg",
+"Jagdalpur","Ambikapur","Rajnandgaon"
+],
+
+"DADRA AND NAGAR HAVELI AND DAMAN AND DIU":[
+"Daman","Diu","Silvassa"
+],
+
+"DELHI":[
+"New Delhi","Delhi"
+],
+
+"GOA":[
+"Panaji","Margao","Vasco da Gama",
+"Mapusa","Ponda"
+],
+
+"GUJARAT":[
+"Ahmedabad","Surat","Vadodara","Rajkot",
+"Bhavnagar","Jamnagar","Junagadh","Gandhinagar",
+"Anand","Bharuch","Bhuj","Navsari","Valsad"
+],
+
+"HARYANA":[
+"Gurugram","Faridabad","Panipat","Ambala",
+"Hisar","Karnal","Rohtak","Sonipat",
+"Yamunanagar","Panchkula","Rewari"
+],
+
+"HIMACHAL PRADESH":[
+"Shimla","Manali","Dharamshala","Solan",
+"Mandi","Kullu","Hamirpur","Una","Bilaspur"
+],
+
+"JAMMU AND KASHMIR":[
+"Srinagar","Jammu","Anantnag","Baramulla",
+"Kathua","Udhampur","Kupwara","Pulwama"
+],
+
+"JHARKHAND":[
+"Ranchi","Jamshedpur","Dhanbad","Bokaro",
+"Deoghar","Hazaribagh","Giridih","Ramgarh"
+],
+
+"KARNATAKA":[
+"Bengaluru","Mysuru","Mangaluru","Hubballi",
+"Belagavi","Dharwad","Kalaburagi","Shivamogga",
+"Tumakuru","Ballari","Udupi","Davangere"
+],
+
+"KERALA":[
+"Thiruvananthapuram","Kochi","Kozhikode",
+"Kollam","Thrissur","Kannur","Alappuzha",
+"Kottayam","Palakkad","Malappuram"
+],
+
+"LADAKH":[
+"Leh","Kargil"
+],
+
+"LAKSHADWEEP":[
+"Kavaratti","Agatti","Amini","Andrott"
+],
+
+"MADHYA PRADESH":[
+"Bhopal","Indore","Jabalpur","Gwalior",
+"Ujjain","Sagar","Rewa","Satna","Dewas",
+"Ratlam","Burhanpur","Chhindwara"
+],
+
+"MAHARASHTRA":[
+"Mumbai","Pune","Nagpur","Nashik","Thane",
+"Aurangabad","Kolhapur","Solapur",
+"Navi Mumbai","Amravati","Nanded",
+"Sangli","Jalgaon"
+],
+
+"MANIPUR":[
+"Imphal","Thoubal","Bishnupur",
+"Churachandpur","Ukhrul","Senapati"
+],
+
+"MEGHALAYA":[
+"Shillong","Tura","Jowai","Nongpoh",
+"Nongstoin"
+],
+
+"MIZORAM":[
+"Aizawl","Lunglei","Champhai",
+"Kolasib","Serchhip"
+],
+
+"NAGALAND":[
+"Kohima","Dimapur","Mokokchung",
+"Tuensang","Wokha","Mon"
+],
+
+"ODISHA":[
+"Bhubaneswar","Cuttack","Rourkela",
+"Berhampur","Sambalpur","Puri",
+"Balasore","Baripada","Jharsuguda"
+],
+
+"PUDUCHERRY":[
+"Puducherry","Karaikal","Mahe","Yanam"
+],
+
+"PUNJAB":[
+"Amritsar","Ludhiana","Jalandhar",
+"Patiala","Bathinda","Mohali",
+"Pathankot","Hoshiarpur","Moga"
+],
+
+"RAJASTHAN":[
+"Jaipur","Jodhpur","Udaipur","Kota",
+"Ajmer","Bikaner","Alwar","Bharatpur",
+"Sikar","Bhilwara","Sri Ganganagar"
+],
+
+"SIKKIM":[
+"Gangtok","Namchi","Gyalshing","Mangan"
+],
+
+"TAMIL NADU":[
+"Chennai","Coimbatore","Madurai",
+"Tiruchirappalli","Salem","Tirunelveli",
+"Erode","Vellore","Thoothukudi",
+"Dindigul","Thanjavur","Tiruppur"
+],
+
+"TELANGANA":[
+"Hyderabad","Warangal","Nizamabad",
+"Karimnagar","Khammam","Nalgonda",
+"Adilabad","Mahbubnagar","Siddipet"
+],
+
+"TRIPURA":[
+"Agartala","Udaipur","Dharmanagar",
+"Kailashahar","Ambassa"
+],
+
+"UTTAR PRADESH":[
+"Agra","Aligarh","Ayodhya","Azamgarh",
+"Bahraich","Ballia","Bareilly","Barabanki",
+"Basti","Bhadohi","Bijnor","Bulandshahr",
+"Etawah","Farrukhabad","Fatehpur",
+"Firozabad","Ghaziabad","Gonda","Gorakhpur",
+"Hapur","Hardoi","Jhansi","Jaunpur",
+"Kanpur","Kanpur Dehat","Kasganj",
+"Kaushambi","Lakhimpur","Lalitpur",
+"Lucknow","Maharajganj","Mathura",
+"Meerut","Mirzapur","Moradabad",
+"Muzaffarnagar","Noida","Pilibhit",
+"Prayagraj","Raebareli","Rampur",
+"Saharanpur","Sambhal","Shahjahanpur",
+"Shamli","Sitapur","Sonbhadra",
+"Sultanpur","Unnao","Varanasi"
+],
+
+"UTTARAKHAND":[
+"Dehradun","Haridwar","Rishikesh",
+"Haldwani","Nainital","Roorkee",
+"Rudrapur","Kashipur","Almora","Mussoorie"
+],
+
+"WEST BENGAL":[
+"Kolkata","Howrah","Durgapur","Asansol",
+"Siliguri","Darjeeling","Kharagpur",
+"Malda","Bardhaman","Haldia"
+]
+
+};
+
+
+/* =========================================================
+   SCHOOL DATA
+========================================================= */
+
+const schoolData = {
+
+"Lucknow":[
+"City Montessori School",
+"La Martiniere College",
+"Delhi Public School Lucknow",
+"Seth M.R. Jaipuria School",
+"St. Francis College",
+"St. Joseph Inter College"
+],
+
+"Kanpur":[
+"Delhi Public School Kanpur",
+"Sir Padampat Singhania Education Centre",
+"Mercy Memorial School",
+"Methodist High School"
+],
+
+"Agra":[
+"Delhi Public School Agra",
+"St. Peter's College",
+"St. Patrick's Junior College",
+"St. George's College"
+],
+
+"Varanasi":[
+"Delhi Public School Varanasi",
+"Sunbeam School",
+"St. John's School",
+"Seth M.R. Jaipuria School"
+],
+
+"Prayagraj":[
+"Delhi Public School Prayagraj",
+"St. John's Academy",
+"Boys' High School",
+"Girls' High School"
+],
+
+"New Delhi":[
+"Delhi Public School",
+"Delhi Public School R.K. Puram",
+"Modern School",
+"St. Columba's School",
+"The Shri Ram School",
+"Amity International School"
+],
+
+"Delhi":[
+"Delhi Public School",
+"Bal Bharti Public School",
+"DAV Public School",
+"Modern Public School"
+],
+
+"Mumbai":[
+"Delhi Public School Mumbai",
+"Bombay Scottish School",
+"Cathedral and John Connon School",
+"Jamnabai Narsee School"
+],
+
+"Pune":[
+"Delhi Public School Pune",
+"The Bishop's School",
+"Symbiosis International School",
+"St. Mary's School"
+],
+
+"Bengaluru":[
+"Delhi Public School Bangalore",
+"National Public School",
+"Bishop Cotton Boys' School",
+"The International School Bangalore"
+],
+
+"Hyderabad":[
+"Delhi Public School Hyderabad",
+"Oakridge International School",
+"Chirec International School",
+"The Hyderabad Public School"
+],
+
+"Chennai":[
+"Delhi Public School Chennai",
+"DAV Public School",
+"Chettinad Vidyashram",
+"PSBB Millennium School"
+],
+
+"Kolkata":[
+"Delhi Public School Ruby Park",
+"La Martiniere for Boys",
+"St. Xavier's Collegiate School",
+"The Heritage School"
+],
+
+"Jaipur":[
+"Delhi Public School Jaipur",
+"Maharaja Sawai Man Singh Vidyalaya",
+"St. Xavier's School",
+"Jayshree Periwal International School"
+],
+
+"Ahmedabad":[
+"Delhi Public School Ahmedabad",
+"The Riverside School",
+"Udgam School",
+"Zydus School for Excellence"
+],
+
+"Patna":[
+"Delhi Public School Patna",
+"St. Michael's High School",
+"Don Bosco Academy",
+"St. Xavier's High School"
+],
+
+"Bhopal":[
+"Delhi Public School Bhopal",
+"Campion School",
+"The Sanskaar Valley School",
+"Billabong High International School"
+],
+
+"Indore":[
+"Delhi Public School Indore",
+"Emerald Heights International School",
+"Choithram School",
+"The Shishukunj International School"
+],
+
+"Chandigarh":[
+"Delhi Public School Chandigarh",
+"St. John's High School",
+"Carmel Convent School",
+"Bhavan Vidyalaya"
+],
+
+"Dehradun":[
+"Delhi Public School Dehradun",
+"The Doon School",
+"Welham Boys' School",
+"Welham Girls' School"
+],
+
+"Gurugram":[
+"Delhi Public School Gurgaon",
+"The Shri Ram School",
+"Heritage Xperiential Learning School",
+"Scottish High International School"
+],
+
+"Noida":[
+"Delhi Public School Noida",
+"Amity International School",
+"Lotus Valley International School",
+"Somerville School"
+]
+
+};
+
+
+/* =========================================================
+   LOAD STATES
+========================================================= */
+
+function loadStates(){
+
+    const stateSelect =
+        document.getElementById("stateSelect");
+
+    stateSelect.innerHTML =
+        '<option value="">Select State / UT</option>';
+
+    Object.keys(indiaData)
+        .sort()
+        .forEach(state=>{
+
+            const option =
+                document.createElement("option");
+
+            option.value=state;
+            option.textContent=
+                state
+                .toLowerCase()
+                .replace(/\b\w/g,c=>c.toUpperCase());
+
+            stateSelect.appendChild(option);
+
+        });
+
+}
+
+
+/* =========================================================
+   LOAD CITIES
+========================================================= */
+
+function loadCities(){
+
+    const state =
+        document.getElementById("stateSelect").value;
+
+    const citySelect =
+        document.getElementById("citySelect");
+
+    const schoolSelect =
+        document.getElementById("schoolSelect");
+
+    citySelect.innerHTML =
+        '<option value="">Select City</option>';
+
+    schoolSelect.innerHTML =
+        '<option value="">Select School</option>';
+
+    schoolSelect.disabled=true;
+
+
+    if(!state){
+
+        citySelect.disabled=true;
+
+        hideSelection();
+
+        return;
+    }
+
+
+    citySelect.disabled=false;
+
+
+    indiaData[state]
+        .sort()
+        .forEach(city=>{
+
+            const option =
+                document.createElement("option");
+
+            option.value=city;
+            option.textContent=city;
+
+            citySelect.appendChild(option);
+
+        });
+
+}
+
+
+/* =========================================================
+   LOAD SCHOOLS
+========================================================= */
+
+function loadSchools(){
+
+    const city =
+        document.getElementById("citySelect").value;
+
+    const schoolSelect =
+        document.getElementById("schoolSelect");
+
+    schoolSelect.innerHTML =
+        '<option value="">Select School</option>';
+
+
+    if(!city){
+
+        schoolSelect.disabled=true;
+
+        hideSelection();
+
+        return;
+    }
+
+
+    schoolSelect.disabled=false;
+
+
+    if(schoolData[city]){
+
+        schoolData[city]
+            .sort()
+            .forEach(school=>{
+
+                const option =
+                    document.createElement("option");
+
+                option.value=school;
+                option.textContent=school;
+
+                schoolSelect.appendChild(option);
+
+            });
+
+    }
+    else{
+
+        const option =
+            document.createElement("option");
+
+        option.value="other";
+
+        option.textContent=
+            "Other / School not listed";
+
+        schoolSelect.appendChild(option);
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW SELECTION
+========================================================= */
+
+function showSelection(){
+
+    const state =
+        document.getElementById("stateSelect").value;
+
+    const city =
+        document.getElementById("citySelect").value;
+
+    const school =
+        document.getElementById("schoolSelect").value;
+
+    const selectedClass =
+        document.getElementById("classSelect").value;
+
+    const message =
+        document.getElementById("selectionMessage");
+
+
+    if(!state && !city && !school && !selectedClass){
+
+        hideSelection();
+
+        return;
+    }
+
+
+    let text="";
+
+
+    if(state){
+        text += "📍 State: " +
+        document.getElementById("stateSelect")
+        .options[
+            document.getElementById("stateSelect").selectedIndex
+        ].text;
+    }
+
+    if(city){
+        text += " &nbsp; | &nbsp; 🏙️ City: " + city;
+    }
+
+    if(school){
+        text += " &nbsp; | &nbsp; 🎓 School: " +
+        document.getElementById("schoolSelect")
+        .options[
+            document.getElementById("schoolSelect").selectedIndex
+        ].text;
+    }
+
+    if(selectedClass){
+        text += " &nbsp; | &nbsp; 📚 Class: " +
+        selectedClass;
+    }
+
+
+    message.innerHTML=text;
+    message.style.display="block";
+
+}
+
+
+function hideSelection(){
+
+    document.getElementById(
+        "selectionMessage"
+    ).style.display="none";
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+let cart=[];
+
+
+function addToCart(name,price,image){
+
+    const existing =
+        cart.find(item=>item.name===name);
+
+
+    if(existing){
+
+        existing.quantity++;
+
+    }
+    else{
+
+        cart.push({
+            name:name,
+            price:price,
+            image:image,
+            quantity:1
+        });
+
+    }
+
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+function updateCart(){
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+
+    cartItems.innerHTML="";
+
+
+    let total=0;
+    let count=0;
+
+
+    cart.forEach((item,index)=>{
+
+        total += item.price * item.quantity;
+
+        count += item.quantity;
+
+
+        cartItems.innerHTML += `
+
+        <div class="cart-item">
+
+            <img
+            src="${item.image}"
+            alt="${item.name}">
+
+            <div class="cart-item-info">
+
+                <strong>
+                    ${item.name}
+                </strong>
+
+                <div style="margin-top:5px;">
+                    ₹${item.price}
+                </div>
+
+                <div class="qty-buttons">
+
+                    <button
+                    onclick="changeQuantity(${index},-1)">
+                        −
+                    </button>
+
+                    <span style="margin:0 8px;">
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                    onclick="changeQuantity(${index},1)">
+                        +
+                    </button>
+
+                    <button
+                    class="remove-btn"
+                    onclick="removeItem(${index})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    cartCount.textContent=count;
+
+    cartTotal.textContent=
+        total.toLocaleString("en-IN");
+
+
+    if(cart.length===0){
+
+        cartItems.innerHTML=`
+
+        <p style="
+        padding:30px 0;
+        text-align:center;
+        color:var(--muted);">
+
+            🛒 Your cart is empty.
+
+        </p>
+
+        `;
+
+    }
+
+}
+
+
+function changeQuantity(index,change){
+
+    cart[index].quantity += change;
+
+
+    if(cart[index].quantity<=0){
+
+        cart.splice(index,1);
+
+    }
+
+
+    updateCart();
+
+}
+
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+function openCart(){
+
+    document
+    .getElementById("cartPanel")
+    .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+    document
+    .getElementById("cartPanel")
+    .classList.remove("open");
+
+}
+
+
+function checkout(){
+
+    if(cart.length===0){
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+
+    alert(
+        "Checkout page yahan open hoga.\n\n"+
+        "Production version mein yahan:\n"+
+        "• Address\n"+
+        "• Phone Number\n"+
+        "• UPI\n"+
+        "• Debit/Credit Card\n"+
+        "• Cash on Delivery\n"+
+        "• Razorpay Payment\n"+
+        "add kiya ja sakta hai."
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts(){
+
+    const query =
+        document.getElementById(
+            "searchInput"
+        ).value.toLowerCase();
+
+
+    const products =
+        document.querySelectorAll(
+            ".product"
+        );
+
+
+    products.forEach(product=>{
+
+        const name =
+            (
+                product.dataset.name ||
+                product.innerText
+            ).toLowerCase();
+
+
+        if(name.includes(query)){
+
+            product.style.display="";
+
+        }
+        else{
+
+            product.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDarkMode(){
+
+    document.body
+        .classList
+        .toggle("dark");
+
+
+    if(
+        document.body.classList.contains("dark")
+    ){
+
+        localStorage.setItem(
+            "schoolkart-dark",
+            "true"
+        );
+
+    }
+    else{
+
+        localStorage.setItem(
+            "schoolkart-dark",
+            "false"
+        );
+
+    }
+
+}
+
+
+if(
+    localStorage.getItem(
+        "schoolkart-dark"
+    )==="true"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* =========================================================
+   START WEBSITE
+========================================================= */
+
+loadStates();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
+```
